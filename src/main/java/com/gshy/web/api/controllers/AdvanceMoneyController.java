@@ -1,6 +1,7 @@
 package com.gshy.web.api.controllers;
 
 import com.bj58.wf.mvc.ActionResult;
+import com.bj58.wf.mvc.annotation.POST;
 import com.bj58.wf.mvc.annotation.Path;
 import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
 import com.bj58.ycs.tool.webutil.tools.ParamHelper;
@@ -24,6 +25,7 @@ public class AdvanceMoneyController extends BaseController{
 	}
 	
 	@Path("/insert")
+	@POST
 	public ActionResult insert(AdvanceMoney ad){
 		try {
 			String[] urls = ParamHelper.getStringArr(beat, "urls");
