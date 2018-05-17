@@ -14,6 +14,18 @@ import com.gshy.web.service.utils.FileUtils;
 
 @Path("/file")
 public class FileController extends BaseController{
+	
+	
+	
+	@Path("/accesstoken")
+	public ActionResult accessToken(){
+		if(StringUtils.isNotBlank(accesstoken)){
+			return new ActionResult4JSON("{\"ret\":\"1\",\"data\":\""+accesstoken+"\"}"); 
+		}else{
+			return new ActionResult4JSON("{\"ret\":\"1\",\"data\":\"error\"}"); 
+		}
+	}
+	
 
 	@Path("/upload")
 	public ActionResult upload(){
