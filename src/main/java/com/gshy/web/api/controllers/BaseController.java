@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.bj58.wf.mvc.MvcController;
 import com.darengong.tools.util.net.http.HttpClient;
 import com.darengong.tools.util.net.http.HttpResponse;
+import com.gshy.web.api.utils.APIConfig;
 import com.gshy.web.api.utils.QuartzSchedulerFactory;
 import com.gshy.web.service.bll.AdvanceMoneyBLL;
 import com.gshy.web.service.bll.EmployeeBLL;
@@ -37,11 +38,7 @@ public class BaseController extends MvcController{
 	
 	/*** parameters ***/
 	protected static String accesstoken = "";
-	
-	private static final String appid = "";
-	
-	private static final String appsecret = "";
-	
+
 	static{
 		try {
 //			getAccessToken();
@@ -74,7 +71,7 @@ public class BaseController extends MvcController{
 	}
 
 	public static void getAccessToken() throws Exception {
-		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+appid+"&secret="+appsecret;
+		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+APIConfig.appid+"&secret="+APIConfig.appsecret;
 		HttpResponse response = HttpClient.getInstance().get(url);
 		String content = response.getContent();
 		JSONObject jsonObject = JSONObject.parseObject(content);
