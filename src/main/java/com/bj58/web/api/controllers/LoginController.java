@@ -24,12 +24,12 @@ public class LoginController extends BaseController{
 			}
 			String dataPassword = emp.getPassword();
 			if (password.equals(dataPassword)) {
-				return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"登陆成功!\"}");
+				return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"登陆成功!\",\"data\":\""+emp.getId()+"\"}");
 			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ActionResult4JSON("{\"ret\":\"-1\",\"msg\":\"用户名或密码错误!\"}");
+		return new ActionResult4JSON("{\"ret\":\"-1\",\"msg\":\"系统错误!\"}");
 	}
 	
 	@Path("/islogin")
