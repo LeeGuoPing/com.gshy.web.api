@@ -1,4 +1,4 @@
-package com.gshy.web.api.utils;
+package com.bj58.web.api.utils;
 
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;

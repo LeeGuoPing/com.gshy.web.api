@@ -1,4 +1,4 @@
-package com.gshy.web.api.controllers;
+package com.bj58.web.api.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
