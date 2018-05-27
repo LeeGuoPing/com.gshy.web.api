@@ -9,6 +9,7 @@ import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
 import com.bj58.ycs.tool.webutil.tools.ParamHelper;
 import com.gshy.web.service.entity.AdvanceMoney;
 import com.gshy.web.service.enums.ImageTypeEnum;
+import com.gshy.web.service.interceptors.Login;
 import com.gshy.web.service.utils.SecurityUtils;
 
 /**
@@ -19,6 +20,7 @@ import com.gshy.web.service.utils.SecurityUtils;
  *
  * @function 垫资
  */
+@Login
 @Path("/advance")
 public class AdvanceMoneyController extends BaseController{
 	
