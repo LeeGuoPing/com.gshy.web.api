@@ -7,6 +7,7 @@ import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
 import com.bj58.ycs.tool.webutil.tools.ParamHelper;
 import com.gshy.web.service.entity.AdvanceMoney;
 import com.gshy.web.service.enums.ImageTypeEnum;
+import com.gshy.web.service.utils.SecurityUtils;
 
 /**
  * 
@@ -28,7 +29,12 @@ public class AdvanceMoneyController extends BaseController{
 	@POST
 	public ActionResult insert(AdvanceMoney ad){
 		try {
+			long empId = SecurityUtils.currentUserId(beat);
 			String[] urls = ParamHelper.getStringArr(beat, "urls");
+			System.out.println("insert empId: "+empId);
+			if(empId>0){
+				ad.setCreateEmp(empId);
+			}
 			long id = advanceMoneyBLL.insert(ad);
 			imageBLL.batchInsert(urls,id,ImageTypeEnum.AdvanceMoney.getValue());
 			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\"}");

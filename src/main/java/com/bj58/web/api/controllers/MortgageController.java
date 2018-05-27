@@ -7,6 +7,7 @@ import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
 import com.bj58.ycs.tool.webutil.tools.ParamHelper;
 import com.gshy.web.service.entity.Mortgage;
 import com.gshy.web.service.enums.ImageTypeEnum;
+import com.gshy.web.service.utils.SecurityUtils;
 
 /**
  * 
@@ -28,7 +29,12 @@ public class MortgageController extends BaseController{
 	@POST
 	public ActionResult insert(Mortgage mortgage){
 		try {
+			long empId = SecurityUtils.currentUserId(beat);
 			String[] urls = ParamHelper.getStringArr(beat, "urls");
+			System.out.println("insert empId: "+empId);
+			if(empId>0){
+				mortgage.setCreateEmp(empId);
+			}
 			long id = mortgageBLL.insert(mortgage);
 			imageBLL.batchInsert(urls,id,ImageTypeEnum.Mortgage.getValue());
 			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\"}");
