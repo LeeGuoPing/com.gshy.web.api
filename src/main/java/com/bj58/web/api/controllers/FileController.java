@@ -55,8 +55,9 @@ public class FileController extends BaseController{
 			String picPath = "/opt/web/static.haoyejinfu.com/"+dateFile+"/";
 			String picName = UUID.randomUUID().toString().replace("-", "") + ".jpg";
 			FileUtils.saveImageToDisk(accessToken, mediaId, picName, picPath);
-			String picUrl = "http://static.haoyejinfu.com/"+dateFile+picName;
+			String picUrl = "https://www.haoyejinfu.com/static/img"+picName;
 			log.info(picUrl);
+			log.info(picPath);
 			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\",\"data\":\""+picUrl+"\"}");
 		} catch (Exception e) {
 			e.printStackTrace();
