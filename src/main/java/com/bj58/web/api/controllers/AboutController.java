@@ -1,6 +1,7 @@
 package com.bj58.web.api.controllers;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
@@ -10,6 +11,7 @@ import com.bj58.wf.mvc.ActionResult;
 import com.bj58.wf.mvc.annotation.POST;
 import com.bj58.wf.mvc.annotation.Path;
 import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
+import com.bj58.ycs.tool.webutil.tools.DateTool;
 import com.gshy.web.service.entity.AdvanceMoney;
 import com.gshy.web.service.entity.Mortgage;
 import com.gshy.web.service.interceptors.Login;
@@ -60,7 +62,9 @@ public class AboutController extends BaseController {
 				for (AdvanceMoney advanceMoney : advanceMoneys) {
 					HistoryList historyList = new HistoryList();
 					historyList.setAuditStatus(advanceMoney.getAuditState());
-					historyList.setCreateTime(advanceMoney.getCreateTime());
+					Date createTime = advanceMoney.getCreateTime();
+					if(createTime!=null)
+					historyList.setCreateTime(DateTool.getInstance().format(createTime, "yyyy-MM-dd HH:mm:ss"));
 					historyList.setType(2);
 					list.add(historyList);
 				}
@@ -70,7 +74,8 @@ public class AboutController extends BaseController {
 				for (Mortgage mortgage : mortgages) {
 					HistoryList historyList = new HistoryList();
 					historyList.setAuditStatus(mortgage.getAuditState());
-					historyList.setCreateTime(mortgage.getCreateTime());
+					Date createTime = mortgage.getCreateTime();
+					historyList.setCreateTime(DateTool.getInstance().format(createTime, "yyyy-MM-dd HH:mm:ss"));
 					historyList.setType(1);
 					list.add(historyList);
 				}
