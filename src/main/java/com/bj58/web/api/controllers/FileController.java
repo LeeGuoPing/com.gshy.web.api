@@ -53,7 +53,7 @@ public class FileController extends BaseController{
 			
 			String dateFile = new SimpleDateFormat("yyyyMMdd").format(new Date());
 			String picPath = "/opt/web/static.haoyejinfu.com/"+dateFile+"/";
-			String picName = UUID.randomUUID().toString().replace("-", "") + ".jpg";
+			String picName = UUID.randomUUID().toString().replace("-", "");
 			FileUtils.saveImageToDisk(accessToken, mediaId, picName, picPath);
 			String picUrl = "https://www.haoyejinfu.com/static/img"+picName;
 			log.info(picUrl);
