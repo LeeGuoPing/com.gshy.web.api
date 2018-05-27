@@ -80,13 +80,13 @@ public class FileController extends BaseController {
 			byte[] data = fileItem.getBytes();
 			System.out.println("传过来的长度:   "+data.length);
 			String dateFile = new SimpleDateFormat("yyyyMMdd").format(new Date());
-			String picPath = "/opt/web/static.haoyejinfu.com/" + dateFile + "/";
-			String picName = UUID.randomUUID().toString().replace("-", "");
+			String picPath = "/opt/web/static.haoyejinfu.com/img/" + dateFile + "/";
+			String picName = UUID.randomUUID().toString().replace("-", "")+".jpg";
 			saveImageToDisk(data, picName, picPath);
-			String picUrl = "https://www.haoyejinfu.com/static/img" + picName;
+			String picUrl = "https://www.haoyejinfu.com/static/img/"+dateFile+"/" + picName;
 			log.info(picUrl);
 			log.info(picPath);
-			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\",\"data\":\"" + picPath + "\"}");
+			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\",\"data\":\"" + picUrl + "\"}");
 		} catch (Exception ex) {
 			return new ActionResult4JSON("{\"ret\":\"-1\",\"msg\":\"success!\",\"data\":\"errpr\"}");
 		}
@@ -118,13 +118,13 @@ public class FileController extends BaseController {
 				file.setWritable(true, false);
 				file.mkdirs();
 			}
-			File pic = new File(picPath + picName + ".jpg");
+			File pic = new File(picPath + picName);
 			if (!pic.exists()) {
 				pic.setWritable(true, false);
 				file.createNewFile();
 			}
 
-			fileOutputStream = new FileOutputStream(picPath + picName + ".jpg");
+			fileOutputStream = new FileOutputStream(picPath + picName);
 			while ((len = inputStream.read(data)) != -1) {
 				fileOutputStream.write(data, 0, len);
 			}
