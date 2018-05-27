@@ -50,7 +50,7 @@ public class LoginController extends BaseController{
 		try {
 			Employee employee = SecurityUtils.currentUserInfo(beat);
 			if(employee!=null){
-				return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\",\"data\":\""+JSON.toJSONString(employee)+"\"}"); 				
+				return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\",\"data\":"+JSON.toJSONString(employee)+"}"); 				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
