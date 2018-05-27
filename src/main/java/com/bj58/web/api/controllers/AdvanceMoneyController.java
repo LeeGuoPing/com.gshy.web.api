@@ -42,7 +42,9 @@ public class AdvanceMoneyController extends BaseController{
 			}
 			ad.setCreateTime(new Date());
 			long id = advanceMoneyBLL.insert(ad);
-			imageBLL.batchInsert(urlArry,id,ImageTypeEnum.AdvanceMoney.getValue());
+			if(urlArry!=null){
+				imageBLL.batchInsert(urlArry,id,ImageTypeEnum.AdvanceMoney.getValue());				
+			}
 			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\"}");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +53,7 @@ public class AdvanceMoneyController extends BaseController{
 	}
 	
 	private String[] parseURL(String urls) {
-		String[] urlArry = new String[10];
+		String[] urlArry = null;
 		if(StringUtils.isNotBlank(urls)){
 			urlArry = urls.split(",");
 			

@@ -42,7 +42,9 @@ public class MortgageController extends BaseController{
 			}
 			mortgage.setCreateTime(new Date());
 			long id = mortgageBLL.insert(mortgage);
-			imageBLL.batchInsert(urlArry,id,ImageTypeEnum.Mortgage.getValue());
+			if(urlArry!=null){
+				imageBLL.batchInsert(urlArry,id,ImageTypeEnum.Mortgage.getValue());				
+			}
 			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\"}");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +53,7 @@ public class MortgageController extends BaseController{
 	}
 
 	private String[] parseURL(String urls) {
-		String[] urlArry = new String[10];
+		String[] urlArry = null;
 		if(StringUtils.isNotBlank(urls)){
 			urlArry = urls.split(",");
 			
