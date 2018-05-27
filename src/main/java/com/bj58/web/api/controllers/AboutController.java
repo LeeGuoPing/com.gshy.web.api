@@ -14,7 +14,6 @@ import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
 import com.bj58.ycs.tool.webutil.tools.DateTool;
 import com.gshy.web.service.entity.AdvanceMoney;
 import com.gshy.web.service.entity.Mortgage;
-import com.gshy.web.service.interceptors.Login;
 import com.gshy.web.service.query.AdvanceMoneyQuery;
 import com.gshy.web.service.query.MortgageQuery;
 import com.gshy.web.service.utils.SecurityUtils;
@@ -27,7 +26,6 @@ import com.gshy.web.service.utils.SecurityUtils;
  *
  * @function 关于我们
  */
-@Login
 @Path("/about")
 public class AboutController extends BaseController {
 	

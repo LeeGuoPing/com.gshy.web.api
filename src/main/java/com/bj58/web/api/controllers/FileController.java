@@ -25,9 +25,7 @@ import com.bj58.wf.mvc.client.UploadRequest;
 import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
 import com.darengong.tools.util.net.http.HttpClient;
 import com.darengong.tools.util.net.http.HttpResponse;
-import com.gshy.web.service.interceptors.Login;
 
-@Login
 @Path("/file")
 public class FileController extends BaseController {
 

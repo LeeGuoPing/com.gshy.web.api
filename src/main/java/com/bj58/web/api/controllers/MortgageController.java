@@ -11,7 +11,6 @@ import com.bj58.ycs.tool.webutil.actionresult.ActionResult4JSON;
 import com.bj58.ycs.tool.webutil.tools.ParamHelper;
 import com.gshy.web.service.entity.Mortgage;
 import com.gshy.web.service.enums.ImageTypeEnum;
-import com.gshy.web.service.interceptors.Login;
 import com.gshy.web.service.utils.SecurityUtils;
 
 /**
@@ -22,7 +21,6 @@ import com.gshy.web.service.utils.SecurityUtils;
  *
  * @function 房抵
  */
-@Login
 @Path("/mortgage")
 public class MortgageController extends BaseController{
 
