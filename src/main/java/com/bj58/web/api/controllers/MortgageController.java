@@ -1,5 +1,7 @@
 package com.bj58.web.api.controllers;
 
+import java.util.Date;
+
 import com.bj58.wf.mvc.ActionResult;
 import com.bj58.wf.mvc.annotation.POST;
 import com.bj58.wf.mvc.annotation.Path;
@@ -35,6 +37,7 @@ public class MortgageController extends BaseController{
 			if(empId>0){
 				mortgage.setCreateEmp(empId);
 			}
+			mortgage.setCreateTime(new Date());
 			long id = mortgageBLL.insert(mortgage);
 			imageBLL.batchInsert(urls,id,ImageTypeEnum.Mortgage.getValue());
 			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\"}");

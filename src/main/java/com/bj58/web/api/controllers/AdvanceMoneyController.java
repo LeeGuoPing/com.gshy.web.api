@@ -1,5 +1,7 @@
 package com.bj58.web.api.controllers;
 
+import java.util.Date;
+
 import com.bj58.wf.mvc.ActionResult;
 import com.bj58.wf.mvc.annotation.POST;
 import com.bj58.wf.mvc.annotation.Path;
@@ -35,6 +37,7 @@ public class AdvanceMoneyController extends BaseController{
 			if(empId>0){
 				ad.setCreateEmp(empId);
 			}
+			ad.setCreateTime(new Date());
 			long id = advanceMoneyBLL.insert(ad);
 			imageBLL.batchInsert(urls,id,ImageTypeEnum.AdvanceMoney.getValue());
 			return new ActionResult4JSON("{\"ret\":\"1\",\"msg\":\"success!\"}");
