@@ -64,6 +64,7 @@ public class AboutController extends BaseController {
 					if(createTime!=null)
 					historyList.setCreateTime(DateTool.getInstance().format(createTime, "yyyy-MM-dd HH:mm:ss"));
 					historyList.setType(2);
+					historyList.setDesc(advanceMoney.getPreHome());
 					list.add(historyList);
 				}
 			}
@@ -75,6 +76,7 @@ public class AboutController extends BaseController {
 					Date createTime = mortgage.getCreateTime();
 					historyList.setCreateTime(DateTool.getInstance().format(createTime, "yyyy-MM-dd HH:mm:ss"));
 					historyList.setType(1);
+					historyList.setDesc(mortgage.getAuthority());
 					list.add(historyList);
 				}
 			}

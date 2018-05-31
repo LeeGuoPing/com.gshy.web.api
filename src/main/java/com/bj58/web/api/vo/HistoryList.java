@@ -1,7 +1,5 @@
 package com.bj58.web.api.vo;
 
-import java.util.Date;
-
 public class HistoryList {
 	
 	private int auditStatus;
@@ -9,6 +7,8 @@ public class HistoryList {
 	private String createTime;
 	
 	private int type;
+	
+	private String desc;  // 房抵的抵押权;垫资的上家名称
 
 	public int getAuditStatus() {
 		return auditStatus;
@@ -33,6 +33,13 @@ public class HistoryList {
 	public void setType(int type) {
 		this.type = type;
 	}
-	
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
 	
 }
